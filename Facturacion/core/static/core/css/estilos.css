@@ -13,7 +13,7 @@ body {
     padding: 15px;
 }
 .formulario{
-    background: #fff;
+    background: rgb(6, 165, 228);
     margin-top: 150px;
     padding: 3px;
 }
@@ -71,7 +71,6 @@ p{
         border-radius: 2%;
     }
 }
-
 
 
 
