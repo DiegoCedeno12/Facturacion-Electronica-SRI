@@ -3,17 +3,17 @@ from multiprocessing import context
 from django.shortcuts import redirect, render, HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
-
-encabezado = """<h1></h1>
-<ul>
-    <li> <a href="/">Home</a> </li>
-    <li> <a href="/autenticar/">Autenticar</a> </li>
-</ul>
-"""
+from .forms import Contact, ContactForm
 
 # Create your views here.
 def home(request):
     return render(request, "core/home.html")
+
+def contact(request):
+    data = {
+        'form':ContactForm()
+    }
+    return render(request, 'core/contact.html', data)
 
 def autenticar(request):
     if request.method == 'POST':
