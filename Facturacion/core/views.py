@@ -9,9 +9,18 @@ from .forms import Contact, ContactForm
 def home(request):
     return render(request, "core/home.html")
 
+
 def contact(request):
     data = { 'form': ContactForm() }
+    if request.method == 'POST':
+        formulario = ContactForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Registro Enviado"
+        else:
+            data["form"] = formulario
     return render(request, "core/contact.html", data)
+
 
 def autenticar(request):
     if request.method == 'POST':
@@ -22,6 +31,7 @@ def autenticar(request):
         form = AuthenticationForm()
     context = {'form': form}
     return render(request, "core/autenticar.html", {'form':form})
+
 
 def registrar(request):
     if request.method == 'POST':

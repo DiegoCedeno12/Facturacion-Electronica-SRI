@@ -1,11 +1,28 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Contacto{% endblock %}
+
 <!--{% block background %}{% load static%}{% static 'core/img/imagen.jpg' %}{% endblock %}-->
 {% block content %}
-<form class="" method="post">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="Enviar" class="buttn">
-</form>
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="car-body">
+                {% block title %}Contacto{% endblock %}
+                <form class="formulario" method="post">
+                    {% csrf_token %}
+                    {{form | crispy }}
+                    <div class="d-flex justify-content-end">
+                        <input type="submit" value="Cancelar" class="btn btn-secondary">
+                        &nbsp;
+                        <input type="submit" value="Enviar" class="btn btn-primary">
+                    </div>
+                </form>
+                {{mensaje}}
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
