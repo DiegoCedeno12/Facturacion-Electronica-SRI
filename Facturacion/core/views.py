@@ -10,10 +10,8 @@ def home(request):
     return render(request, "core/home.html")
 
 def contact(request):
-    data = {
-        'form':ContactForm()
-    }
-    return render(request, 'core/contact.html', data)
+    data = { 'form': ContactForm() }
+    return render(request, "core/contact.html", data)
 
 def autenticar(request):
     if request.method == 'POST':

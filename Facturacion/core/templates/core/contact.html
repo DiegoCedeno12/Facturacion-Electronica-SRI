@@ -3,9 +3,8 @@
 {% block title %}Contacto{% endblock %}
 {% block background %}{% load static%}{% static 'core/img/imagen.jpg' %}{% endblock %}
 {% block content %}
-<form class="formulario" method="post">
+<form class="" method="post">
     {{form}}
-       {% csrf_token %}
-       <input type="submit" value="Eniar" class="button">
-        </form>
+    <input type="submit" value="Enviar" class="button">
+</form>
 {% endblock %}
