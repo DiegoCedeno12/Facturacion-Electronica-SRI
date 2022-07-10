@@ -1,10 +1,11 @@
 {% extends 'core/base.html' %}
 
 {% block title %}Contacto{% endblock %}
-{% block background %}{% load static%}{% static 'core/img/imagen.jpg' %}{% endblock %}
+<!--{% block background %}{% load static%}{% static 'core/img/imagen.jpg' %}{% endblock %}-->
 {% block content %}
 <form class="" method="post">
+    {% csrf_token %}
     {{form}}
-    <input type="submit" value="Enviar" class="button">
+    <input type="submit" value="Enviar" class="buttn">
 </form>
 {% endblock %}
