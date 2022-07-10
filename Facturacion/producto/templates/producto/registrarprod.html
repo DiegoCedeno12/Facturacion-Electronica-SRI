@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 
-<!--{% block background %}{% load static%}{% static 'core/img/imagen.jpg' %}{% endblock %}-->
+{% block background %}{% load static%}{% static 'core/img/base.jpg' %}{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 
@@ -16,7 +16,7 @@
                     <div class="d-flex justify-content-end">
                         <input type="submit" value="Cancelar" class="btn btn-secondary">
                         &nbsp;
-                        <input type="submit" value="Enviar" class="btn btn-primary">
+                        <input type="submit" value="Guardar" class="btn btn-primary">
                     </div>
                 </form>
                 {{mensaje}}
