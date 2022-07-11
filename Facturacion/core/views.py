@@ -34,7 +34,7 @@ def contact(request):
     return render(request, "core/contact.html", data)
 
 
-def authenticate(request):
+def autent(request):
     if request.method == 'POST':
         form = AuthenticationForm(data= request.POST)
         if form.is_valid():
@@ -42,10 +42,10 @@ def authenticate(request):
     else:
         form = AuthenticationForm()
     context = {'form': form}
-    return render(request, "core/authenticate.html", {'form':form})
+    return render(request, "core/autent.html", {'form':form})
 
 
-def register(request):
+def registrar(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -54,4 +54,4 @@ def register(request):
     else:
         form = UserCreationForm()
     context = {'form': form}
-    return render(request, "core/register.html", {'form':form})
+    return render(request, "core/registrar.html", {'form':form})
