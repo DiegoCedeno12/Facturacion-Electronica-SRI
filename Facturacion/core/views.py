@@ -20,7 +20,7 @@ def registrarprod(request):
             data["mensaje"] = "Registro Enviado"
         else:
             data["form"] = formulario
-    return render(request, "producto/registrarprod.html")
+    return render(request, "producto/registrarprod.html", data)
 
 def contact(request):
     data = { 'form': ContactForm() }

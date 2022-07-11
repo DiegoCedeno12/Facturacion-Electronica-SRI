@@ -4,10 +4,19 @@
 {% block background %}{% load static%}{% static 'core/img/imagen.jpg' %}{% endblock %}
 
 {% block content %}
-<form class="formulario" method="post">
+<div class="container">
+    <div class="abs-center pt-5 mt-5 mr-1">
+        <form class="row g-3  was-validated" method="post">
+            <div>
+                <h1 style="text-align: center;">Registrarse</h1>
+            </div>
     {% csrf_token %}
     {{form}}
-    <input type="submit" value="Registrarse" class="button">
-         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿Ya tienes una cuenta?<a class="link" href="/autenticar/">Iniciar Sesion</a></p>
+    <div class="d-flex justify-content-center" style="padding: 10px;">
+        <input type="reset" value="Cancelar" class="btn btn-secondary">
+        <input type="submit" value="Guardar" class="btn btn-success">
+    </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

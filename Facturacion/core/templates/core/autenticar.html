@@ -5,11 +5,18 @@
 {% block background %}{% load static%}{% static 'core/img/imagen.jpg' %}{% endblock %}
  
 {% block content %}
-<form class="formulario" method="post">
+<div class="container">
+    <div class="abs-center pt-5 mt-5 mr-1">
+      <form action="#" class="border p-5 form" method="post">
+        <div>
+            <h1 style="text-align: center;">Iniciar Sesion</h1>
+        </div>
 {{form}}
    {% csrf_token %}
    <input type="submit" value="Iniciar Sesion" class="button">
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿No tienes una cuenta? <a class="link" href="/registrar/">Registrarse </a></p>
-    </form>
+        </form>
+    </div>
+  </div>
 {% endblock %}
