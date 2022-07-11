@@ -24,14 +24,16 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Inicio</a>
             </li>
+            {% if user. %}
             <li class="nav-item">
               <a class="nav-link" href="/registrarprod/">Registrar Producto</a>
             </li>
+            {% endif %}
             <li class="nav-item">
               <a class="nav-link" href="/contact/">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/autenticar/">Iniciar Sesion</a>
+              <a class="nav-link" href="/authenticate/">Iniciar Sesion</a>
             </li>
           </ul>
         </div>

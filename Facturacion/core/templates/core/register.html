@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Registrar{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center pt-5 mt-5 mr-1">
+      <div class="col-md-6 formulario">
+          <form class="row g-3 p-4 was-validated" method="post">
+              <div>
+                  <h1 style="text-align: center;">Registrarse</h1>
+              </div>
+    {% csrf_token %}
+    {{form}}
+    <div class="cont">
+                  <div class="form-check-inline">
+                    <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad. <br>
+                    <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                    <label class="form-check-label" for="validationFormCheck1" style="color: black;"> Aceptar terminos y condiciones</label>
+                  <br> ¿Ya tienes una cuenta?<a class="link" href="/authenticate/"> <b>Iniciar Sesion</b> </a>
+                  </p>
+                </div>
+                </div>
+                <div class="d-grid gap-2 pb-2">
+                  <input type="submit" class="btn btn-sm boton1" value="Guardar" >
+                  <input type="reset" value="Cancelar" class="btn btn-secondary btn-sm boton2" />
+                </div>
+                
+            </form>
+        </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
