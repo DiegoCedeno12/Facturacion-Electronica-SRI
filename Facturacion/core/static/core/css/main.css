@@ -1,0 +1,100 @@
+body {
+    background-image: url(../img/base.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.form-control, .input-group-text{
+    background: rgba(0,0,0,.3);
+    border-style: none;
+    transition: 0.3s ease-in;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:focus{
+    background: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control::placeholder{
+    color: white;
+}
+
+.formulario {
+    background: rgba(0,0,0,.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,.3);
+    color: white;
+}
+
+.boton1{
+    background: #1a2537;
+    color: white;
+    font-size: 16px;
+    font-weight: 700!important;
+    padding: 5px;
+    box-shadow: 0 0 rgba(0,0,0,.568);
+    transition: 0.5s ease;
+}
+
+.boton2{
+    background: #1a2537c5;
+    color: white;
+    font-size: 16px;
+    font-weight: 700!important;
+    padding: 5px;
+    box-shadow: 0 0 rgba(0,0,0,.568);
+    transition: 0.5s ease;
+}
+
+.boton1:hover{
+    background: rgba(95, 158, 160, 0.712);
+    color: #1a2537;
+}
+
+.boton2:hover{
+    background: rgba(95, 158, 160, 0.548);
+    color: #1a2537;
+}
+
+.form-check-inline {
+    color: black;
+}
+
+.checkbox{
+    color: blue;
+}
+
+.link{
+    color: #1a2537;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: #062e6e;
+}
+
+.olvide, .contr{
+    color: white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    font-size: 16px;
+    text-align: end;
+}
+
+.olvide:hover{
+    cursor: pointer;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    color: #1a2537;
+}
+
+.info{
+    color: white;
+    font-weight: 600!important;
+    font-size: 16px;
+}

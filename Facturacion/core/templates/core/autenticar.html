@@ -6,17 +6,24 @@
  
 {% block content %}
 <div class="container">
-    <div class="abs-center pt-5 mt-5 mr-1">
-      <form action="#" class="border p-5 form" method="post">
-        <div>
-            <h1 style="text-align: center;">Iniciar Sesion</h1>
-        </div>
+  <div class="row justify-content-center pt-5 mt-5 mr-1">
+    <div class="col-md-6 formulario">
+        <form class="row g-4 p-4" method="post">
+            <div>
+                <h1 style="text-align: center;">Iniciar Sesion</h1>
+            </div>
 {{form}}
    {% csrf_token %}
-   <input type="submit" value="Iniciar Sesion" class="button">
-         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿No tienes una cuenta? <a class="link" href="/registrar/">Registrarse </a></p>
-        </form>
+   <div class="d-grid gap-2 pb-2 info">
+    <input type="submit" value="Ingresar" class="btn btn-sm boton1" />
+    <div class="form-group max-sm-4 text-right contr">
+      <span><a class="olvide">Olvide mi contraseña</a></span>
     </div>
+    <p>¿No tienes una cuenta?<a class="link" href="/registrar/"> <b>Registrarse</b> </a></p>
   </div>
+ 
+</form>
+</div>
+</div>
+</div>
 {% endblock %}
