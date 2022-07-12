@@ -21,4 +21,4 @@ class registrar(models.Model):
         verbose_name_plural = 'registros'
 
     def __str__(self):
-        return self.codigo_principal
+        return self.nombre

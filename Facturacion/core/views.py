@@ -1,11 +1,12 @@
-from email import message
-from multiprocessing import context
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect, render, HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm
-from .forms import Contact, ContactForm
-from producto.models import registrar
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from .forms import Contact, ContactForm, UserCreationForm, AuthenticationForm
+from django.contrib import messages
+from django.core.paginator import Paginator
+from django.http import Http404
 from producto.forms import ProductoForm
+from django.contrib import auth
 
 # Create your views here.
 def home(request):
@@ -34,24 +35,35 @@ def contact(request):
     return render(request, "core/contact.html", data)
 
 
+@csrf_exempt
 def autent(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(data= request.POST)
+    data = {
+        'form': AuthenticationForm()
+    }
+    if request.method == "POST":
+        form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            return redirect('home')
-    else:
-        form = AuthenticationForm()
-    context = {'form': form}
-    return render(request, "core/autent.html", {'form':form})
+            user = auth.authenticate(username = form.cleaned_data["username"], password =form.cleaned_data["password"])
+            auth.login(request, user)
+            return redirect(to="home") 
+        data["form"] = form
 
+    return render(request, 'core/autent.html', data)
 
+@csrf_exempt
 def registrar(request):
+    data = {
+        'form': UserCreationForm()
+    }
+    
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            message.success(request, f'usuario {username} creado')
-    else:
-        form = UserCreationForm()
-    context = {'form': form}
-    return render(request, "core/registrar.html", {'form':form})
+            form.save()
+            user = auth.authenticate(username = form.cleaned_data["username"], password =form.cleaned_data["password1"])
+            auth.login(request, user)
+            messages.success(request, "Te has registrado con exito")
+            return redirect(to="home") 
+        data["form"] = form
+    return render(request, "core/registrar.html", data)
+
