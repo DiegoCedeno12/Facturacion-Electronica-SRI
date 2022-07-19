@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% block title %}Registrar Producto{% endblock %}
+
+{% block background %}{% load static%}{% static 'core/img/base.jpg' %}{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+
+
+<div class="container">
+    <div class="row justify-content-center mt-5 mr-1">
+        <div class="formulario col-md-12">
+            <form class="row g-3 p-4" method="post">
+                <div class="mb-3 row">
+                    <h3>Lista de Producto</h3>
+                </div>
+                <table class="table table-light">
+                    <tr>
+                      <th>Codigo Principal</th>
+                      <th>Codigo auxiliar</th>
+                      <th>Tipo de Producto</th>
+                      <th>Nombre</th>
+                      <th>Precio Unitario</th>
+                      <th>Accion</th>
+                    </tr>
+                    
+                    {% for p in Producto %}
+                    <tr>
+                        <td>{{ p.codigo_principal }}</td>
+                        <td>{{ p.codigo_auxiliar }}</td>
+                        <td>{{ p.tipo_producto }}</td>
+                        <td>{{ p.nombre }}</td>
+                        <td>{{ p.iva }}</td>
+                        <td>{{ p.ice }}</td>
+                        <td>{{ p.ice }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
