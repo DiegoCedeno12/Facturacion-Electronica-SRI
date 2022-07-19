@@ -4,21 +4,28 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="container">
-    <div class="row justify-content-center pt-5 mt-5 mr-1">
-        <div class="col-md-6 formulario">
-            <form class="row g-3 p-4 was-validated" method="post">
-                <div>
-                    <h1 style="text-align: center;">Contacto</h1>
-                </div>
+<div class="container w-75 bg-info mt-5 rounded-3 shadow">
+    <div class="row align-items-lg-stretch">
+        <div class="col bg-white p-3 rounded-end">
+            <h2 class="fw-bold text-center py-5">Contacto</h2>
+            <form action="#" class="registro was-validated" method="post">
                 {% csrf_token %}
                 {{form | crispy }}
-                <div class="d-grid gap-2 pb-2">
-                    <input type="submit" class="btn btn-sm boton1" value="Guardar" >
-                    <input type="reset" value="Cancelar" class="btn btn-secondary btn-sm boton2" />
+                <div class="d-grid gap-2 pt-5 d-md-flex justify-content-md-center">
+                    <button type="submit" class="btn btn-primary me-md-2" id="boton1">Guardar</button>
+                    <button type="reset" class="btn btn-secondary me-md-2" id="boton2">Cancelar</button>
                 </div>        
             </form>
-            {{mensaje}}
+            <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
+                <div class="toast-header">
+                  <i class="fa-solid fa-envelope-circle-check"></i>
+                  <strong class="me-auto"> ¡Importante!</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  {{mensaje}}
+                </div>
+            </div>
         </div>
     </div>
 </div>

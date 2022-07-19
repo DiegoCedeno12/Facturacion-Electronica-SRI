@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import registrar
+from .models import Producto
 from .forms import ProductoForm
 
 # Create your views here.
@@ -14,3 +14,12 @@ def registrarprod(request):
         else:
             data["form"] = formulario
     return render(request, "producto/registrarprod.html")
+
+def listar_productos(request):
+    productos = Producto.objects.all()
+    
+    data = {
+        'Producto' : productos
+    }
+
+    return render(request, "producto/listar.html", data)

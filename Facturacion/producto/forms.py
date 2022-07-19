@@ -1,9 +1,9 @@
 from django import forms
-from .models import registrar
+from .models import Producto
 
 class ProductoForm(forms.ModelForm):
 
     class Meta:
-        model = registrar
+        model = Producto
         #fields ["name", "email", "type_consult", "message", "notice"]
         fields = '__all__'

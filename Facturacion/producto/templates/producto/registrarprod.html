@@ -6,23 +6,22 @@
 {% load crispy_forms_tags %}
 
 <div class="container">
-    <div class="row justify-content-center pt-5 mt-5 mr-1">
-        <div class="col-md-6 formulario">
-            <form class="row g-3 p-4 was-validated" method="post">
-                <div>
-                    <h1 style="text-align: center;">Registrar Producto</h1>
+    <div class="row justify-content-center mt-5 mr-1">
+        <div class="formulario col-md-12">
+            <form class="row g-3 p-4" method="post">
+                <div class="mb-3 row">
+                    <h3>Agregar Producto</h3>
                 </div>
-                {% csrf_token %}
-                {{form | crispy }}
-                <div class="d-grid gap-2 pb-2">
-                    <input type="submit" class="btn btn-sm boton1" value="Guardar" >
-                    <input type="reset" value="Cancelar" class="btn btn-secondary btn-sm boton2" />
-                </div>
-                      
-            </form>
-            {{mensaje}}
+                    {% csrf_token %}
+                    {{form | crispy }}
+                    <div class="d-grid gap-3 pt-3 d-md-flex justify-content-md-end">
+                        <button class="btn btn-secondary me-lg-4" type="reset">Cancelar</button>
+                        <button class="btn btn-primary" type="submit">Aceptar</button>
+                    </div>
+                </form>
+                {{mensaje}}
+            </div>
         </div>
     </div>
 </div>
-
 {% endblock %}

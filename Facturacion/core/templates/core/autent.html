@@ -1,28 +1,41 @@
-{% extends 'core/base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Iniciar Sesion | Facturacion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Amaranth&family=Patrick+Hand&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'core/css/menu.css' %}">
+    <body>
+        <div class="container w-75 bg-info mt-5 rounded-3 shadow">
+            <div class="row align-items-lg-stretch">
+                <div class="col bg d-none d-lg-block col-responsive rounded-3">
 
-{% block title %}Autenticar{% endblock %}
-{% block background %}{% load static%}{% static 'core/img/imagen.jpg' %}{% endblock %}
- 
-{% block content %}
-<div class="container">
-  <div class="row justify-content-center pt-5 mt-5 mr-1">
-    <div class="col-md-6 formulario">
-        <form class="row g-4 p-4" method="post">
-            <div>
-                <h1 style="text-align: center;">Iniciar Sesion</h1>
+                </div>
+                <div class="col bg-white p-5 rounded-end">
+                    <h2 class="fw-bold text-center py-5">Bienvenidos</h2>
+
+                    <!--Login-->
+                    <form action="#" method="post">
+                      {{form}}
+                      {% csrf_token %}
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn1 btn-primary">Iniciar Sesión</button>
+                        </div>
+
+                        <div class="my-3">
+                            <p class="recup"><a class="txt" href="#">Recuperar contraseña</a></p> 
+                            <span>¿No tienes cuenta? <a class="texto" href="/registrar/">Registrarse</a> <br></span>
+                        </div>
+                    </form>
+                </div>
             </div>
-{{form}}
-   {% csrf_token %}
-   <div class="d-grid gap-2 pb-2 info">
-    <input type="submit" value="Ingresar" class="btn btn-sm boton1" />
-    <div class="form-group max-sm-4 text-right contr">
-      <span><a class="olvide">Olvide mi contraseña</a></span>
-    </div>
-    <p>¿No tienes una cuenta?<a class="link" href="/registrar/"> <b>Registrarse</b> </a></p>
-  </div>
- 
-</form>
-</div>
-</div>
-</div>
-{% endblock %}
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>

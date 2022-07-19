@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 from django.http import Http404
 from producto.forms import ProductoForm
 from django.contrib import auth
+from producto.views import Producto
 
 # Create your views here.
 def home(request):
@@ -22,6 +23,15 @@ def registrarprod(request):
         else:
             data["form"] = formulario
     return render(request, "producto/registrarprod.html", data)
+
+def listar_productos(request):
+    productos = Producto.objects.all()
+    
+    data = {
+        'productos' : productos
+    }
+
+    return render(request, "producto/listar.html", data)
 
 def contact(request):
     data = { 'form': ContactForm() }

@@ -17,7 +17,6 @@ class Contact(models.Model):
     email = models.EmailField(verbose_name="Correo Electronico")
     type_consult = models.IntegerField(choices=options_consult, verbose_name="Tipo de Consulta")
     message = models.TextField(verbose_name="Mensaje")
-    notice = models.BooleanField(verbose_name="Aviso")
 
     class Meta:
         verbose_name = 'contacto'
