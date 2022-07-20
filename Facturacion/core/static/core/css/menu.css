@@ -5,7 +5,7 @@ body{
 }
 
 .bg {
-    background-image: url('https://www.aymperusi.com/assets/img/demo/servicios-aym/facturacion_electronica/facturacion-electronica.png');
+    background-image: url("{% static 'core/img/base.png' %}");
     background-position: center center;
 }
 
