@@ -20,7 +20,7 @@ from django.urls import include
 from core import views
 
 urlpatterns = [
-    path('home/', views.home, name='home'),
+    path('', views.home, name='home'),
     path('registrarprod/', views.registrarprod, name='registrarprod'),
     path('listar_producto/', views.listar_productos, name='listar_productos'),
     path('modificar/<codigo_principal>/', views.modificar, name="modificar"),
