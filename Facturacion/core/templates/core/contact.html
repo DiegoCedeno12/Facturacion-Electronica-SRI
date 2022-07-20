@@ -8,24 +8,25 @@
     <div class="row align-items-lg-stretch">
         <div class="col bg-white p-3 rounded-end">
             <h2 class="fw-bold text-center py-5">Contacto</h2>
-            <form action="#" class="registro was-validated" method="post">
+            <form action="#" class="registro" method="post">
                 {% csrf_token %}
                 {{form | crispy }}
                 <div class="d-grid gap-2 pt-5 d-md-flex justify-content-md-center">
                     <button type="submit" class="btn btn-primary me-md-2" id="boton1">Guardar</button>
                     <button type="reset" class="btn btn-secondary me-md-2" id="boton2">Cancelar</button>
-                </div>        
+                </div>   
+                <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
+                    <div class="toast-header">
+                      <i class="fa-solid fa-envelope-circle-check"></i>
+                      <strong class="me-auto"> ¡Importante!</strong>
+                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      {{mensaje}}
+                    </div>
+                </div>     
             </form>
-            <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
-                <div class="toast-header">
-                  <i class="fa-solid fa-envelope-circle-check"></i>
-                  <strong class="me-auto"> ¡Importante!</strong>
-                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">
-                  {{mensaje}}
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

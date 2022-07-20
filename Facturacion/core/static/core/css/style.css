@@ -349,3 +349,9 @@ body{
 .container .row .formulario .row .asteriskField{
   display: none;
 }
+
+#modificar, #eliminar {
+  --bs-btn-padding-y: .25rem; 
+  --bs-btn-padding-x: .5rem; 
+  --bs-btn-font-size: .75rem;
+}

@@ -1,5 +1,5 @@
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import redirect, render, HttpResponse
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from .forms import Contact, ContactForm, UserCreationForm, AuthenticationForm
 from django.contrib import messages
@@ -33,13 +33,35 @@ def listar_productos(request):
 
     return render(request, "producto/listar.html", data)
 
+def modificar(request, codigo_principal):
+    productos = get_object_or_404(Producto, codigo_principal=codigo_principal)
+    
+    data = {
+        'form' : ProductoForm(instance=productos)
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=productos)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to="listar_productos")
+        data["form"] = formulario
+
+    return render(request, "producto/modificar.html", data)
+
+def eliminar(request, codigo_principal):
+    productos = get_object_or_404(Producto, codigo_principal=codigo_principal)
+    productos.delete()
+    return redirect(to="listar_productos")
+
+
 def contact(request):
     data = { 'form': ContactForm() }
     if request.method == 'POST':
         formulario = ContactForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Registro Enviado"
+            messages.success(request, 'Registro Enviado')
         else:
             data["form"] = formulario
     return render(request, "core/contact.html", data)

@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% block title %}Registrar Producto{% endblock %}
+
+{% block background %}{% load static%}{% static 'core/img/base.jpg' %}{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row justify-content-center mt-5 mr-1">
+        <div class="formulario col-md-12">
+            <form class="row g-3 p-4" method="post">
+                <div class="mb-3 row">
+                    <h3>Modificar Producto</h3>
+                </div>
+                    {% csrf_token %}
+                    {{form | crispy }}
+                    <div class="d-grid gap-3 pt-3 d-md-flex justify-content-md-end">
+                        <button class="btn btn-secondary me-lg-4" type="reset">Cancelar</button>
+                        <button class="btn btn-primary" type="submit">Aceptar</button>
+                    </div>
+                </form>
+                {{mensaje}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

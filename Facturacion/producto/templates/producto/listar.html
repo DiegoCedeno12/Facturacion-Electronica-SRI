@@ -4,9 +4,7 @@
 {% block background %}{% load static%}{% static 'core/img/base.jpg' %}{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
-
-
-
+{% load humanize %}
 
 <div class="container">
     <div class="row justify-content-center mt-5 mr-1">
@@ -22,18 +20,42 @@
                       <th>Tipo de Producto</th>
                       <th>Nombre</th>
                       <th>Precio Unitario</th>
+                      <th>IVA</th>
+                      <th>ICE</th>
                       <th>Accion</th>
                     </tr>
                     
-                    {% for p in Producto %}
+                    {% for p in productos %}
                     <tr>
-                        <td>{{ p.codigo_principal }}</td>
+                        <td>{{ p.codigo_principal  }}</td>
                         <td>{{ p.codigo_auxiliar }}</td>
-                        <td>{{ p.tipo_producto }}</td>
+                        <td>
+                            {% if p.tipo_producto == 1 %}
+                            Bien
+                            {% else %}
+                            Servicio
+                            {% endif %}
+                        </td>
                         <td>{{ p.nombre }}</td>
-                        <td>{{ p.iva }}</td>
+                        <td>{{ p.valor_unitario | intcomma }}</td>
+                        <td>
+                            {% if p.iva == 1 %}
+                            0%
+                            {% elif p.iva == 2 %}
+                            12%
+                            {% elif p.iva == 3 %}
+                            14%
+                            {% elif p.iva == 4 %}
+                            No Objeto de Impuesto
+                            {% elif p.iva == 5 %}
+                            Exento de IVA
+                            {% endif %}
+                        </td>
                         <td>{{ p.ice }}</td>
-                        <td>{{ p.ice }}</td>
+                        <td>
+                            <a type="button" class="btn btn-primary " href="{% url 'modificar' p.codigo_principal %}" id="modificar">Modificar</a>
+                            <a type="button" class="btn btn-danger" href="{% url 'eliminar' p.codigo_principal %}" id="eliminar">Eliminar</a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </table>

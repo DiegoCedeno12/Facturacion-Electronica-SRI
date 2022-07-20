@@ -14,6 +14,7 @@
 <body>
   <div class="sidebar close">
     <div class="logo-details">
+      <i class="fa-solid fa-file-invoice"></i>
       <span class="logo_name">Empresa</span>
     </div>
     <ul class="nav-links">
@@ -23,7 +24,7 @@
           <span class="link_name">Inicio</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="/home/">Inicio</a></li>
+          <li><a class="link_name" href="home">Inicio</a></li>
         </ul>
       </li>
       <li>
@@ -51,7 +52,6 @@
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Inventario</a></li>
           <li><a href="/registrarprod/">Agregar Producto</a></li>
-          <li><a href="#">Modificar Producto</a></li>
           <li><a href="/listar_producto/">Listar Producto</a></li>
         </ul>
       </li>
@@ -73,19 +73,26 @@
   <div class="home-section">
     <nav class="navbar " id="encabez">
         <div class="container-fluid">
-            <div class="home-content">
-                <i class='bx bx-menu' ></i>
-                <span class="text">Facturación Electronica</span>
-            </div>
-            <form class="d-flex">
-              <ul class="nav">
-                <li class="nav-item  list-unstyled">
-                  <a class="nav-link">@{{ user.username}}</a>
-                </li>
+          <div class="home-content">
+              <i class='bx bx-menu' ></i>
+              <span class="text">Facturación Electronica</span>
+          </div>
+          <form class="d-flex">
+            <ul class="nav">
+              <li class="nav-item  list-unstyled">
+                <a class="nav-link">
+                  <i class="fa-solid fa-user"></i>
+                  <span>{{ user.username }}</span>
+                </a>
+              </li>
+              
+              <li class="nav-item  list-unstyled">
+                <a class="nav-link" href="{% url 'logout' %}">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  <span>Salir</span>
+                </a>
+              </li>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesion</a>
-                </li>
               <li class="nav-item  list-unstyled">
                   <a class="nav-link">
                       <i class="fa-solid fa-calendar"></i>
