@@ -12,18 +12,20 @@
                 <div class="mb-3 row">
                     <h3>Lista de Producto</h3>
                 </div>
-                <table class="table table-light">
-                    <tr>
-                      <th>Codigo Principal</th>
-                      <th>Codigo auxiliar</th>
-                      <th>Tipo de Producto</th>
-                      <th>Nombre</th>
-                      <th>Precio Unitario</th>
-                      <th>IVA</th>
-                      <th>ICE</th>
-                      <th>Accion</th>
-                    </tr>
-                    
+                <table class="table">
+                    <thead class="table-info">
+                        <tr>
+                            <th scope="col">Codigo Principal</th>
+                            <th scope="col">Codigo auxiliar</th>
+                            <th scope="col">Tipo de Producto</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio Unitario</th>
+                            <th scope="col">IVA</th>
+                            <th scope="col">ICE</th>
+                            <th scope="col">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
                     {% for p in productos %}
                     <tr>
                         <td>{{ p.codigo_principal  }}</td>
@@ -56,7 +58,9 @@
                             <a type="button" class="btn btn-danger" href="{% url 'eliminar' p.codigo_principal %}" id="eliminar">Eliminar</a>
                         </td>
                     </tr>
+                </tbody>
                     {% endfor %}
+                
                 </table>
             </form>
         </div>

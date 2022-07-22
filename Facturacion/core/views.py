@@ -54,7 +54,6 @@ def eliminar(request, codigo_principal):
     productos.delete()
     return redirect(to="listar_productos")
 
-
 def contact(request):
     data = { 'form': ContactForm() }
     if request.method == 'POST':
@@ -65,7 +64,6 @@ def contact(request):
         else:
             data["form"] = formulario
     return render(request, "core/contact.html", data)
-
 
 @csrf_exempt
 def autent(request):
