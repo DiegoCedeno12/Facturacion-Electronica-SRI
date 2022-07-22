@@ -14,8 +14,13 @@
         <div class="container w-75 bg-info mt-5 rounded-3 shadow">
             <div class="row align-items-lg-stretch">
                 <div class="col bg d-none d-lg-block col-responsive rounded-3">
-
-                </div>
+                    <style>
+                      .bg{
+                      background-image: url('{% static "core/img/base.png" %}');
+                      background-position: center center;
+                      }
+                    </style>
+                  </div>
                 <div class="col bg-white p-5 rounded-end">
                     <h2 class="fw-bold text-center py-5">Bienvenidos</h2>
 
@@ -29,7 +34,7 @@
                         </div>
 
                         <div class="my-3">
-                            <p class="recup"><a class="txt" href="#">Recuperar contraseña</a></p> 
+                            <p class="recup"><a class="txt" href="{% url 'password_reset' %}">Recuperar contraseña</a></p> 
                             <span>¿No tienes cuenta? <a class="texto" href="/registrar/">Registrarse</a> <br></span>
                         </div>
                     </form>
