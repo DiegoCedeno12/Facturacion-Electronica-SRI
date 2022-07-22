@@ -15,31 +15,31 @@
                 <table class="table">
                     <thead class="table-info">
                         <tr>
-                            <th scope="col">Codigo Principal</th>
-                            <th scope="col">Codigo auxiliar</th>
-                            <th scope="col">Tipo de Producto</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Precio Unitario</th>
-                            <th scope="col">IVA</th>
-                            <th scope="col">ICE</th>
-                            <th scope="col">Accion</th>
+                            <th scope="col" class="text-center">Codigo Principal</th>
+                            <th scope="col" class="text-center">Codigo auxiliar</th>
+                            <th scope="col" class="text-center">Tipo de Producto</th>
+                            <th scope="col" class="text-center">Nombre</th>
+                            <th scope="col" class="text-center">Precio Unitario</th>
+                            <th scope="col" class="text-center">IVA</th>
+                            <th scope="col" class="text-center">ICE</th>
+                            <th scope="col" class="text-center">Accion</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
                     {% for p in productos %}
                     <tr>
-                        <td>{{ p.codigo_principal  }}</td>
-                        <td>{{ p.codigo_auxiliar }}</td>
-                        <td>
+                        <td class="text-center">{{ p.codigo_principal  }}</td>
+                        <td class="text-center">{{ p.codigo_auxiliar }}</td>
+                        <td class="text-center">
                             {% if p.tipo_producto == 1 %}
                             Bien
                             {% else %}
                             Servicio
                             {% endif %}
                         </td>
-                        <td>{{ p.nombre }}</td>
-                        <td>{{ p.valor_unitario | intcomma }}</td>
-                        <td>
+                        <td class="text-center">{{ p.nombre }}</td>
+                        <td class="text-center">{{ p.valor_unitario | intcomma }}</td>
+                        <td class="text-center">
                             {% if p.iva == 1 %}
                             0%
                             {% elif p.iva == 2 %}
@@ -52,10 +52,12 @@
                             Exento de IVA
                             {% endif %}
                         </td>
-                        <td>{{ p.ice }}</td>
+                        <td class="text-center">{{ p.ice }}</td>
                         <td>
-                            <a type="button" class="btn btn-primary " href="{% url 'modificar' p.codigo_principal %}" id="modificar">Modificar</a>
-                            <a type="button" class="btn btn-danger" href="{% url 'eliminar' p.codigo_principal %}" id="eliminar">Eliminar</a>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                <a type="button" class="btn btn-primary " href="{% url 'modificar' p.codigo_principal %}" id="modificar">Modificar</a>
+                                <a type="button" class="btn btn-danger" href="{% url 'eliminar' p.codigo_principal %}" id="eliminar">Eliminar</a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

@@ -18,10 +18,10 @@ tipo_iva = [
 class Producto(models.Model):
     codigo_principal = models.BigIntegerField(primary_key=True)
     codigo_auxiliar = models.BigIntegerField()
-    tipo_producto = models.IntegerField(choices=tipo_producto)
+    tipo_producto = models.IntegerField(choices=tipo_producto, default=1)
     nombre = models.CharField(max_length=100)
     valor_unitario = models.FloatField()
-    iva = models.IntegerField(choices=tipo_iva)
+    iva = models.IntegerField(choices=tipo_iva, default=1)
     ice = models.IntegerField()
 
     class Meta:
